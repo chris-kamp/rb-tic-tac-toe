@@ -23,4 +23,34 @@ describe Board do
     end
   end
 
+  describe '#won?' do
+    it 'returns true where the board is won vertically' do
+      board = Board.new
+      board.receive_move(0, 0, 'X')
+      board.receive_move(1, 0, 'X')
+      board.receive_move(2, 0, 'X')
+      expect(board.won?).to eql(true)
+    end
+    it 'returns true where the board is won horizontally' do
+      board = Board.new
+      board.receive_move(0, 0, 'O')
+      board.receive_move(0, 1, 'O')
+      board.receive_move(0, 2, 'O')
+      expect(board.won?).to eql(true)
+    end
+    it 'returns true where the board is won diagonally' do
+      board = Board.new
+      board.receive_move(2, 0, 'O')
+      board.receive_move(1, 1, 'O')
+      board.receive_move(0, 2, 'O')
+      expect(board.won?).to eql(true)
+    end
+    it 'does not return false positives' do
+      board = Board.new
+      board.receive_move(2, 0, 'X')
+      board.receive_move(1, 1, 'O')
+      board.receive_move(0, 2, 'X')
+      expect(board.won?).to eql(false)
+    end
+  end
 end

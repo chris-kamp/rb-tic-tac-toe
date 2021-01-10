@@ -31,4 +31,16 @@ class Board
     end
     @board_array[x][y] = "[#{symbol}]"
   end
+
+  def won?
+    lines = []
+    @board_array.each { |row| lines.push(row) }
+    @board_array.transpose.each { |col| lines.push(col) }
+    lines.push([@board_array[0][0], @board_array[1][1], @board_array[2][2]])
+    lines.push([@board_array[0][2], @board_array[1][1], @board_array[2][0]])
+    lines.each do |line|
+      return true if line[0] != '[ ]' && line.uniq.count == 1
+    end
+    false
+  end
 end
