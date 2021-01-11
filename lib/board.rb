@@ -13,7 +13,7 @@ class Board
   end
 
   def display
-    ['   A ', ' B ', ' C '].each { |header| print header }
+    ['   1 ', ' 2 ', ' 3 '].each { |header| print header }
     print "\n"
     @board_array.each_with_index do |row, index|
       print "#{index + 1} "
