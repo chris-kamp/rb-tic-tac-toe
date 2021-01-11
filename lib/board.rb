@@ -22,7 +22,9 @@ class Board
     end
   end
 
-  def valid_move?(x, y)
+  def valid_move?(coords)
+    x = coords[0]
+    y = coords[1]
     if x.is_a?(Integer) && y.is_a?(Integer) && x.between?(0, 2) &&
          y.between?(0, 2) && @board_array[x][y] == '[ ]'
       true
@@ -31,11 +33,13 @@ class Board
     end
   end
 
-  def receive_move(x, y, symbol)
+  def receive_move(coords, symbol)
+    x = coords[0]
+    y = coords[1]
     unless symbol == 'X' || symbol == 'O'
       raise 'Error: board received unexpected symbol'
     end
-    unless valid_move?(x, y)
+    unless valid_move?(coords)
       raise 'Error: board received move on occupied or invalid square'
     end
     @board_array[x][y] = "[#{symbol}]"

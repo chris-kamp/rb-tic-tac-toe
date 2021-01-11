@@ -9,47 +9,47 @@ describe Board do
         ['[ ]', '[ ]', '[ ]'],
       ]
       board = Board.new
-      board.receive_move(0, 0, 'X')
+      board.receive_move([0, 0], 'X')
       expect(board.board_array).to eql(expected_board_array)
     end
     it 'throws an error where square is already marked' do
       board = Board.new
-      board.receive_move(0, 0, 'X')
-      expect { board.receive_move(0, 0, 'X') }.to raise_error
+      board.receive_move([0, 0], 'X')
+      expect { board.receive_move([0, 0], 'X') }.to raise_error
     end
     it 'throws an error where symbol is not X or O' do
       board = Board.new
-      expect { board.receive_move(0, 0, 'Y') }.to raise_error
+      expect { board.receive_move([0, 0], 'Y') }.to raise_error
     end
   end
 
   describe '#won?' do
     it 'returns true where the board is won vertically' do
       board = Board.new
-      board.receive_move(0, 0, 'X')
-      board.receive_move(1, 0, 'X')
-      board.receive_move(2, 0, 'X')
+      board.receive_move([0, 0], 'X')
+      board.receive_move([1, 0], 'X')
+      board.receive_move([2, 0], 'X')
       expect(board.won?).to eql(true)
     end
     it 'returns true where the board is won horizontally' do
       board = Board.new
-      board.receive_move(0, 0, 'O')
-      board.receive_move(0, 1, 'O')
-      board.receive_move(0, 2, 'O')
+      board.receive_move([0, 0], 'O')
+      board.receive_move([0, 1], 'O')
+      board.receive_move([0, 2], 'O')
       expect(board.won?).to eql(true)
     end
     it 'returns true where the board is won diagonally' do
       board = Board.new
-      board.receive_move(2, 0, 'O')
-      board.receive_move(1, 1, 'O')
-      board.receive_move(0, 2, 'O')
+      board.receive_move([2, 0], 'O')
+      board.receive_move([1, 1], 'O')
+      board.receive_move([0, 2], 'O')
       expect(board.won?).to eql(true)
     end
     it 'does not return false positives' do
       board = Board.new
-      board.receive_move(2, 0, 'X')
-      board.receive_move(1, 1, 'O')
-      board.receive_move(0, 2, 'X')
+      board.receive_move([2, 0], 'X')
+      board.receive_move([1, 1], 'O')
+      board.receive_move([0, 2], 'X')
       expect(board.won?).to eql(false)
     end
   end
