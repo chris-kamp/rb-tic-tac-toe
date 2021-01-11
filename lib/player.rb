@@ -1,4 +1,6 @@
-require './lib/board.rb'
+# frozen_string_literal: true
+
+require './lib/board'
 
 class Player
   attr_reader :mark

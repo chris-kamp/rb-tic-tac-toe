@@ -1,5 +1,7 @@
-require './lib/board.rb'
-require './lib/player.rb'
+# frozen_string_literal: true
+
+require './lib/board'
+require './lib/player'
 
 # Set up board and players
 board = Board.new
