@@ -1,12 +1,16 @@
 require './lib/board.rb'
 require './lib/player.rb'
 
+# Set up board and players
 board = Board.new
 player1 = Player.new('X')
 player2 = Player.new('O')
 players = [player1, player2]
+
+# An enumerable to allow cycling through players with "next"
 players_enum = players.cycle
 
+# Main game loop
 puts "----- ----- -----\nTIC TAC TOE\n----- ----- -----"
 board.display
 until board.won?

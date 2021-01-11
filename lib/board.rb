@@ -12,6 +12,7 @@ class Board
     ]
   end
 
+  # Display the game board
   def display
     ['   1 ', ' 2 ', ' 3 '].each { |header| print header }
     print "\n"
@@ -22,6 +23,7 @@ class Board
     end
   end
 
+  # Check if a given move is valid
   def valid_move?(coords)
     x = coords[0]
     y = coords[1]
@@ -33,6 +35,7 @@ class Board
     end
   end
 
+  # Mark a given move on the board (if valid)
   def receive_move(coords, symbol)
     x = coords[0]
     y = coords[1]
@@ -45,6 +48,7 @@ class Board
     @board_array[x][y] = "[#{symbol}]"
   end
 
+  # Check if board has a winner
   def won?
     lines = []
     @board_array.each { |row| lines.push(row) }
