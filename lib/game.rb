@@ -21,4 +21,3 @@ until (board.won? || board.full?)
   board.display
 end
 
-message = board.won? ? "\nPLAYER #{current_player.mark} WINS!" : "IT'S A TIE!"
