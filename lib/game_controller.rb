@@ -13,9 +13,10 @@ players_enum = players.cycle
 # Main game loop
 puts "----- ----- -----\nTIC TAC TOE\n----- ----- -----"
 board.display
-until board.won?
+until (board.won? || board.full?)
   current_player = players_enum.next
   board.receive_move(current_player.pick_move(board), current_player.mark)
   board.display
 end
-puts "\nPLAYER #{current_player.mark} WINS!"
+
+message = board.won? ? "\nPLAYER #{current_player.mark} WINS!" : "IT'S A TIE!"

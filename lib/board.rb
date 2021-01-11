@@ -60,4 +60,10 @@ class Board
     end
     false
   end
+
+  # Check if the board is full
+  def full?
+    @board_array.each { |row| return false if row.include?('[ ]') }
+    true
+  end
 end

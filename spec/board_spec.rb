@@ -53,4 +53,25 @@ describe Board do
       expect(board.won?).to eql(false)
     end
   end
+
+  describe '#full?' do
+    it 'returns true where the board is full' do
+      board = Board.new
+      symbols = %w[X O]
+      symbols_enum = symbols.cycle
+      board.board_array.each_with_index do |row, x|
+        row.each_with_index do |_square, y|
+          board.receive_move([x, y], symbols_enum.next)
+        end
+      end
+      expect(board.full?).to eql(true)
+    end
+    it 'returns false where the board is not full' do
+      board = Board.new
+      board.receive_move([2, 0], 'X')
+      board.receive_move([1, 1], 'O')
+      board.receive_move([0, 2], 'X')
+      expect(board.full?).to eql(false)
+    end
+  end
 end
