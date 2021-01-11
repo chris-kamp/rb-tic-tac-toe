@@ -7,6 +7,8 @@ class Player
     @mark = mark
   end
 
+  private
+
   # Ask the player for a move
   def ask_move
     puts "Player #{@mark}, enter your move.\n\n"
@@ -29,11 +31,13 @@ class Player
     [x - 1, y - 1]
   end
 
+  public
+
   # Ask the player for a move until a valid move is received
   def pick_move(board)
     # Consider removing first line
     move = ask_move
-    until board.valid_move?(move[0], move[1])
+    until board.valid_move?(move)
       puts "Invalid move. Try again.\n\n"
       move = ask_move
     end
