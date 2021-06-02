@@ -1,4 +1,5 @@
-# rb-tic-tac-toe
-The Odin Project - Tic Tac Toe (Ruby)
+# Tic-Tac-Toe (Ruby)
 
-A simple console implementation of Tic Tac Toe to be played by two human players, made to practice Ruby. A solution to an assignment from The Odin Project: https://www.theodinproject.com/courses/ruby-programming/lessons/tic-tac-toe
+## About
+
+A simple console implementation of Tic Tac Toe to be played by two human players, built for an [assignment](https://www.theodinproject.com/courses/ruby-programming/lessons/tic-tac-toe) from The Odin Project.
